@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A441C772-FE22-4C59-B673-1BC25AF2A8DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HyperValidator.Models</RootNamespace>
+    <AssemblyName>HyperValidator.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Console.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="HyperSpin.cs" />
+    <Compile Include="INI\IniFile.cs" />
+    <Compile Include="INI\IniSection.cs" />
+    <Compile Include="INI\IniValue.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\ConsoleSettings.cs" />
+    <Compile Include="Settings\SystemSettings\ExitOption.cs" />
+    <Compile Include="Settings\HyperSpinSettings.cs" />
+    <Compile Include="Settings\SystemSettings\MenuMode.cs" />
+    <Compile Include="Settings\SystemSettings\Quality.cs" />
+    <Compile Include="Settings\SystemSettings\CpuPriority.cs" />
+    <Compile Include="Settings\SystemSettings\HyperLaunchSettings.cs" />
+    <Compile Include="Settings\SystemSettings\HiScoreSettings.cs" />
+    <Compile Include="Settings\SystemSettings\JoyStickButton.cs" />
+    <Compile Include="Settings\SystemSettings\ProgramSettings.cs" />
+    <Compile Include="Settings\SystemSettings\LedBlinkySettings.cs" />
+    <Compile Include="Settings\SystemSettings\SpinnerSettings.cs" />
+    <Compile Include="Settings\SystemSettings\TrackBallSettings.cs" />
+    <Compile Include="Settings\SystemSettings\JoyStickSettings.cs" />
+    <Compile Include="Settings\SystemSettings\KeyboardSettings.cs" />
+    <Compile Include="Settings\ConsoleSettings\AnimationType.cs" />
+    <Compile Include="Settings\ConsoleSettings\ExecutionInfo.cs" />
+    <Compile Include="Settings\ConsoleSettings\Navigation.cs" />
+    <Compile Include="Settings\ConsoleSettings\Filters.cs" />
+    <Compile Include="Settings\ConsoleSettings\Themes.cs" />
+    <Compile Include="Settings\ConsoleSettings\Wheel.cs" />
+    <Compile Include="Settings\ConsoleSettings\Pointer.cs" />
+    <Compile Include="Settings\ConsoleSettings\VideoDefaults.cs" />
+    <Compile Include="Settings\ConsoleSettings\Sounds.cs" />
+    <Compile Include="Settings\ConsoleSettings\SpecialArtType.cs" />
+    <Compile Include="Settings\ConsoleSettings\StartLocation.cs" />
+    <Compile Include="Settings\ConsoleSettings\GameText.cs" />
+    <Compile Include="Settings\ConsoleSettings\SpecialArt.cs" />
+    <Compile Include="Settings\ConsoleSettings\RotationPoint.cs" />
+    <Compile Include="Settings\ConsoleSettings\WheelSpeed.cs" />
+    <Compile Include="Settings\ConsoleSettings\WheelPosition.cs" />
+    <Compile Include="Settings\ConsoleSettings\TextFont.cs" />
+    <Compile Include="Settings\ConsoleSettings\WindowState.cs" />
+    <Compile Include="Settings\ConsoleSettings\WheelStyle.cs" />
+    <Compile Include="Settings\SystemSettings\AttractModeSettings.cs" />
+    <Compile Include="Settings\SystemSettings\ControlSettings.cs" />
+    <Compile Include="Settings\SystemSettings\SoundSettings.cs" />
+    <Compile Include="Settings\SystemSettings\OptimizerSettings.cs" />
+    <Compile Include="Settings\SystemSettings\IntroVideoSettings.cs" />
+    <Compile Include="Settings\SystemSettings\ResolutionSettings.cs" />
+    <Compile Include="Settings\SystemSettings\MainSettings.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

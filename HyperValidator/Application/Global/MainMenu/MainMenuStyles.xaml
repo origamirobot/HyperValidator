@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cal="http://www.caliburnproject.org"
+                    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
+
+	<Style x:Key="Menu_MenuItem" TargetType="MenuItem" BasedOn="{StaticResource {x:Type MenuItem}}">
+	</Style>
+
+	<Style x:Key="Menu_File" TargetType="MenuItem" BasedOn="{StaticResource Menu_MenuItem}">
+		<Setter Property="Header" Value="{DynamicResource Menu_FileText}"/>
+	</Style>
+
+</ResourceDictionary>
