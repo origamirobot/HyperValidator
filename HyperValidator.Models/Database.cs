@@ -33,7 +33,7 @@ namespace HyperValidator.Models
 		/// <summary>
 		/// Gets or sets the last updated.
 		/// </summary>
-		public DateTime LastUpdated { get; set; }
+		public DateTime? LastUpdated { get; set; }
 
 		/// <summary>
 		/// Gets or sets the games.

@@ -177,9 +177,9 @@ namespace HyperValidator.Core.Validators
 		/// <returns></returns>
 		protected virtual Boolean ValidateVideo(HyperValidator.Models.Console console, Game game)
 		{
-			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Video");
 			foreach (var fileType in Settings.VideoFileTypes)
 			{
+				var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Video");
 				location = PathUtility.Combine(location, $"{game.Name}.{fileType}");
 				if (FileUtility.Exists(location))
 					return true;
@@ -196,9 +196,9 @@ namespace HyperValidator.Core.Validators
 		/// <returns></returns>
 		protected virtual Boolean ValidateTheme(HyperValidator.Models.Console console, Game game)
 		{
-			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Themes");
 			foreach (var fileType in Settings.ThemeFileTypes)
 			{
+				var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Themes");
 				location = PathUtility.Combine(location, $"{game.Name}.{fileType}");
 				if (FileUtility.Exists(location))
 					return true;
@@ -215,9 +215,9 @@ namespace HyperValidator.Core.Validators
 		/// <returns></returns>
 		protected virtual Boolean ValidateWheelArt(HyperValidator.Models.Console console, Game game)
 		{
-			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Wheel");
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
+				var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Wheel");
 				location = PathUtility.Combine(location, $"{game.Name}.{fileType}");
 				if (FileUtility.Exists(location))
 					return true;
@@ -234,9 +234,9 @@ namespace HyperValidator.Core.Validators
 		/// <returns></returns>
 		protected virtual Boolean ValidateBackground(HyperValidator.Models.Console console, Game game)
 		{
-			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Backgrounds");
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
+				var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Backgrounds");
 				location = PathUtility.Combine(location, $"{game.Name}.{fileType}");
 				if (FileUtility.Exists(location))
 					return true;
@@ -253,9 +253,9 @@ namespace HyperValidator.Core.Validators
 		/// <returns></returns>
 		protected virtual Boolean ValidateRom(HyperValidator.Models.Console console, Game game)
 		{
-			var location = PathUtility.Combine(Settings.RomLocation, console.Name);
 			foreach (var fileType in Settings.RomFileTypes)
 			{
+				var location = PathUtility.Combine(Settings.RomLocation, console.Name);
 				location = PathUtility.Combine(location, $"{game.Name}.{fileType}");
 				if (FileUtility.Exists(location))
 					return true;

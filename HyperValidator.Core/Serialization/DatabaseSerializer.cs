@@ -114,16 +114,16 @@ namespace HyperValidator.Core.Serialization
 					throw new InvalidOperationException("Couldn't deserialize database file");
 
 				var header = menu.Element(XName.Get("header"));
-				if(header == null)
-					throw new InvalidOperationException("Couldn't deserialize database file");
+				if (header == null)
+					Logger.Warn($"Couldn't find a header in the database file");
 
 
 				var database = new Database
 				{
-					ExporterVersion = header.GetString("exporterversion"),
-					ListVersion = header.GetString("listversion"),
-					LastUpdated = header.GetDateTime("lastlistupdate"),
-					Name = header.GetString("listname"),
+					ExporterVersion = header?.GetString("exporterversion"),
+					ListVersion = header?.GetString("listversion"),
+					LastUpdated = header?.GetDateTime("lastlistupdate"),
+					Name = header?.GetString("listname"),
 					Games = new System.Collections.Generic.List<Game>()
 				};
 

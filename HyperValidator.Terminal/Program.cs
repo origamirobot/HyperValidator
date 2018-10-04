@@ -50,7 +50,7 @@ namespace HyperValidator.Terminal
 		static void TestConsoleRepository()
 		{
 			var repo = Kernel.Get<IConsoleRepository>();
-			var console = repo.Get("Sega Genesis");
+			var console = repo.Get("Sammy Atomiswave");
 
 			Console.ForegroundColor = ConsoleColor.Cyan;
 			Console.WriteLine(console.Name.ToUpper());
