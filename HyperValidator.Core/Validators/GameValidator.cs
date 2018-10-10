@@ -107,8 +107,8 @@ namespace HyperValidator.Core.Validators
 			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Artwork1");
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
-				location = PathUtility.Combine(location, $"{game.Name}.{fileType}");
-				if (FileUtility.Exists(location))
+				var path = PathUtility.Combine(location, $"{game.Name}.{fileType}");
+				if (FileUtility.Exists(path))
 					return true;
 			}
 
@@ -129,8 +129,8 @@ namespace HyperValidator.Core.Validators
 			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Artwork2");
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
-				location = PathUtility.Combine(location, $"{game.Name}.{fileType}");
-				if (FileUtility.Exists(location))
+				var path = PathUtility.Combine(location, $"{game.Name}.{fileType}");
+				if (FileUtility.Exists(path))
 					return true;
 			}
 
@@ -151,8 +151,8 @@ namespace HyperValidator.Core.Validators
 			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Artwork3");
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
-				location = PathUtility.Combine(location, $"{game.Name}.{fileType}");
-				if (FileUtility.Exists(location))
+				var path = PathUtility.Combine(location, $"{game.Name}.{fileType}");
+				if (FileUtility.Exists(path))
 					return true;
 			}
 
@@ -173,8 +173,8 @@ namespace HyperValidator.Core.Validators
 			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Artwork4");
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
-				location = PathUtility.Combine(location, $"{game.Name}.{fileType}");
-				if (FileUtility.Exists(location))
+				var path = PathUtility.Combine(location, $"{game.Name}.{fileType}");
+				if (FileUtility.Exists(path))
 					return true;
 			}
 
