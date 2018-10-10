@@ -65,6 +65,51 @@ namespace HyperValidator.Core.Configuration
 		/// Gets the rom file types.
 		/// </summary>
 		List<String> RomFileTypes { get; }
+
+		/// <summary>
+		/// Gets a value indicating whether to validate the artwork 1 file
+		/// </summary>
+		Boolean ValidateArtwork1 { get; }
+
+		/// <summary>
+		/// Gets a value indicating whether to  validate the artwork 2 file
+		/// </summary>
+		Boolean ValidateArtwork2 { get; }
+
+		/// <summary>
+		/// Gets a value indicating whether to  validate the artwork 3 file
+		/// </summary>
+		Boolean ValidateArtwork3 { get; }
+
+		/// <summary>
+		/// Gets a value indicating whether to  validate the artwork 4 file
+		/// </summary>
+		Boolean ValidateArtwork4 { get; }
+
+		/// <summary>
+		/// Gets a value indicating whether to validate the video file
+		/// </summary>
+		Boolean ValidateVideos { get; }
+
+		/// <summary>
+		/// Gets a value indicating whether to validate the background file
+		/// </summary>
+		Boolean ValidateBackgrounds { get; }
+
+		/// <summary>
+		/// Gets a value indicating whether to validate theme file
+		/// </summary>
+		Boolean ValidateThemes { get; }
+
+		/// <summary>
+		/// Gets a value indicating whether to validate the wheel art file
+		/// </summary>
+		Boolean ValidateWheelArt { get; }
+
+		/// <summary>
+		/// Gets a value indicating whether to validate ROMs
+		/// </summary>
+		Boolean ValidateRoms { get; }
 	}
 
 	/// <summary>
@@ -178,6 +223,58 @@ namespace HyperValidator.Core.Configuration
 		/// </summary>
 		public String CartridgeArtFolderName => AppSettingsReader.ReadOptionalStringAppSetting(nameof(CartridgeArtFolderName), "Artwork2");
 
+
+
+
+		#region THINGS TO VALIDATE
+
+
+		/// <summary>
+		/// Gets a value indicating whether to validate the artwork 1 file
+		/// </summary>
+		public Boolean ValidateArtwork1 => AppSettingsReader.ReadOptionalBooleanAppSetting(nameof(ValidateArtwork1), true);
+
+		/// <summary>
+		/// Gets a value indicating whether to  validate the artwork 2 file
+		/// </summary>
+		public Boolean ValidateArtwork2 => AppSettingsReader.ReadOptionalBooleanAppSetting(nameof(ValidateArtwork2), true);
+
+		/// <summary>
+		/// Gets a value indicating whether to  validate the artwork 3 file
+		/// </summary>
+		public Boolean ValidateArtwork3 => AppSettingsReader.ReadOptionalBooleanAppSetting(nameof(ValidateArtwork3), true);
+
+		/// <summary>
+		/// Gets a value indicating whether to  validate the artwork 4 file
+		/// </summary>
+		public Boolean ValidateArtwork4 => AppSettingsReader.ReadOptionalBooleanAppSetting(nameof(ValidateArtwork4), true);
+
+		/// <summary>
+		/// Gets a value indicating whether to validate the video file
+		/// </summary>
+		public Boolean ValidateVideos => AppSettingsReader.ReadOptionalBooleanAppSetting(nameof(ValidateVideos), true);
+
+		/// <summary>
+		/// Gets a value indicating whether to validate the background file
+		/// </summary>
+		public Boolean ValidateBackgrounds => AppSettingsReader.ReadOptionalBooleanAppSetting(nameof(ValidateBackgrounds), true);
+		/// <summary>
+		/// Gets a value indicating whether to validate theme file
+		/// </summary>
+		public Boolean ValidateThemes => AppSettingsReader.ReadOptionalBooleanAppSetting(nameof(ValidateThemes), true);
+
+		/// <summary>
+		/// Gets a value indicating whether to validate the wheel art file
+		/// </summary>
+		public Boolean ValidateWheelArt => AppSettingsReader.ReadOptionalBooleanAppSetting(nameof(ValidateWheelArt), true);
+		/// <summary>
+		/// Gets a value indicating whether to validate ROMs
+		/// </summary>
+		public Boolean ValidateRoms => AppSettingsReader.ReadOptionalBooleanAppSetting(nameof(ValidateRoms), true);
+
+
+
+		#endregion THINGS TO VALIDATE
 
 
 		#endregion PUBLIC ACCESSORS

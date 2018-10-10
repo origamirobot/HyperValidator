@@ -99,8 +99,11 @@ namespace HyperValidator.Core.Validators
 		/// <param name="console">The console.</param>
 		/// <param name="game">The game.</param>
 		/// <returns></returns>
-		protected virtual Boolean ValidateArtwork1(HyperValidator.Models.Console console, Game game)
+		protected virtual Boolean? ValidateArtwork1(HyperValidator.Models.Console console, Game game)
 		{
+			if (!Settings.ValidateArtwork1)
+				return null;
+
 			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Artwork1");
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
@@ -118,8 +121,11 @@ namespace HyperValidator.Core.Validators
 		/// <param name="console">The console.</param>
 		/// <param name="game">The game.</param>
 		/// <returns></returns>
-		protected virtual Boolean ValidateArtwork2(HyperValidator.Models.Console console, Game game)
+		protected virtual Boolean? ValidateArtwork2(HyperValidator.Models.Console console, Game game)
 		{
+			if (!Settings.ValidateArtwork2)
+				return null;
+
 			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Artwork2");
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
@@ -137,8 +143,11 @@ namespace HyperValidator.Core.Validators
 		/// <param name="console">The console.</param>
 		/// <param name="game">The game.</param>
 		/// <returns></returns>
-		protected virtual Boolean ValidateArtwork3(HyperValidator.Models.Console console, Game game)
+		protected virtual Boolean? ValidateArtwork3(HyperValidator.Models.Console console, Game game)
 		{
+			if (!Settings.ValidateArtwork3)
+				return null;
+
 			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Artwork3");
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
@@ -156,8 +165,11 @@ namespace HyperValidator.Core.Validators
 		/// <param name="console">The console.</param>
 		/// <param name="game">The game.</param>
 		/// <returns></returns>
-		protected virtual Boolean ValidateArtwork4(HyperValidator.Models.Console console, Game game)
+		protected virtual Boolean? ValidateArtwork4(HyperValidator.Models.Console console, Game game)
 		{
+			if (!Settings.ValidateArtwork4)
+				return null;
+
 			var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Artwork4");
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
@@ -175,8 +187,11 @@ namespace HyperValidator.Core.Validators
 		/// <param name="console">The console.</param>
 		/// <param name="game">The game.</param>
 		/// <returns></returns>
-		protected virtual Boolean ValidateVideo(HyperValidator.Models.Console console, Game game)
+		protected virtual Boolean? ValidateVideo(HyperValidator.Models.Console console, Game game)
 		{
+			if (!Settings.ValidateVideos)
+				return null;
+
 			foreach (var fileType in Settings.VideoFileTypes)
 			{
 				var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Video");
@@ -194,8 +209,11 @@ namespace HyperValidator.Core.Validators
 		/// <param name="console">The console.</param>
 		/// <param name="game">The game.</param>
 		/// <returns></returns>
-		protected virtual Boolean ValidateTheme(HyperValidator.Models.Console console, Game game)
+		protected virtual Boolean? ValidateTheme(HyperValidator.Models.Console console, Game game)
 		{
+			if (!Settings.ValidateThemes)
+				return null;
+
 			foreach (var fileType in Settings.ThemeFileTypes)
 			{
 				var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Themes");
@@ -213,8 +231,11 @@ namespace HyperValidator.Core.Validators
 		/// <param name="console">The console.</param>
 		/// <param name="game">The game.</param>
 		/// <returns></returns>
-		protected virtual Boolean ValidateWheelArt(HyperValidator.Models.Console console, Game game)
+		protected virtual Boolean? ValidateWheelArt(HyperValidator.Models.Console console, Game game)
 		{
+			if (!Settings.ValidateWheelArt)
+				return null;
+
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
 				var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Wheel");
@@ -232,8 +253,11 @@ namespace HyperValidator.Core.Validators
 		/// <param name="console">The console.</param>
 		/// <param name="game">The game.</param>
 		/// <returns></returns>
-		protected virtual Boolean ValidateBackground(HyperValidator.Models.Console console, Game game)
+		protected virtual Boolean? ValidateBackground(HyperValidator.Models.Console console, Game game)
 		{
+			if (!Settings.ValidateBackgrounds)
+				return null;
+
 			foreach (var fileType in Settings.ImageFileTypes)
 			{
 				var location = PathUtility.Combine(Settings.HyperSpinRootLocation, "Media", console.Name, "Images\\Backgrounds");
@@ -251,8 +275,11 @@ namespace HyperValidator.Core.Validators
 		/// <param name="console">The console.</param>
 		/// <param name="game">The game.</param>
 		/// <returns></returns>
-		protected virtual Boolean ValidateRom(HyperValidator.Models.Console console, Game game)
+		protected virtual Boolean? ValidateRom(HyperValidator.Models.Console console, Game game)
 		{
+			if (!Settings.ValidateRoms)
+				return null;
+
 			foreach (var fileType in Settings.RomFileTypes)
 			{
 				var location = PathUtility.Combine(Settings.RomLocation, console.Name);

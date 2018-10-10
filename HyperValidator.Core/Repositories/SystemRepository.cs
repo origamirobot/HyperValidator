@@ -3,6 +3,7 @@ using HyperValidator.Core.IO;
 using HyperValidator.Core.Logging;
 using HyperValidator.Core.Serialization;
 using System;
+using System.Xml.Linq;
 using HyperValidator.Models;
 using HyperValidator.Models.Settings;
 
@@ -59,6 +60,11 @@ namespace HyperValidator.Core.Repositories
 		/// </summary>
 		protected IHyperValidatorSettings Settings { get; private set; }
 
+		/// <summary>
+		/// Gets the console repository.
+		/// </summary>
+		protected IConsoleRepository ConsoleRepository { get; private set; }
+
 
 		#endregion PROTECTED PROPERTIES
 
@@ -73,19 +79,21 @@ namespace HyperValidator.Core.Repositories
 		/// <param name="directoryUtility">The directory utility.</param>
 		/// <param name="fileUtility">The file utility.</param>
 		/// <param name="pathUtility">The path utility.</param>
-		/// <param name="systemSerializer">The system serializer.</param>
+		/// <param name="consoleRepository">The console repository.</param>
 		public SystemRepository(
 			IHyperValidatorSettings settings, 
 			ILogger logger, 
 			IDirectoryUtility directoryUtility, 
 			IFileUtility fileUtility, 
-			IPathUtility pathUtility)
+			IPathUtility pathUtility, 
+			IConsoleRepository consoleRepository)
 		{
 			Settings = settings;
 			Logger = logger;
 			DirectoryUtility = directoryUtility;
 			FileUtility = fileUtility;
 			PathUtility = pathUtility;
+			ConsoleRepository = consoleRepository;
 		}
 
 
@@ -102,6 +110,21 @@ namespace HyperValidator.Core.Repositories
 		{
 			var hyperspin = new HyperSpin();
 
+			var databasePath = PathUtility.Combine(Settings.HyperSpinRootLocation, "Databases\\Main Menu\\Main Menu.xml");
+			var xml = FileUtility.ReadAllText(databasePath);
+			var database = XDocument.Parse(xml);
+
+			var menu = database.Document.Element(XName.Get("menu"));
+
+			foreach (var item in menu.Elements())
+			{
+				var name = item.Attribute(XName.Get("name")).Value;
+				var console = new HyperValidator.Models.Console()
+				{
+					Name = name
+				};
+				hyperspin.Consoles.Add(console);
+			}
 			return hyperspin;
 		}
 

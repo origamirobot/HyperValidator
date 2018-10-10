@@ -217,15 +217,15 @@ namespace HyperValidator.Models
 		#region PRIVATE PROPERTIES
 
 
-		private Boolean _rom;
-		private Boolean _theme;
-		private Boolean _wheelArt;
-		private Boolean _video;
-		private Boolean _artwork4;
-		private Boolean _artwork3;
-		private Boolean _artwork2;
-		private Boolean _artwork1;
-		private Boolean _background;
+		private Boolean? _rom;
+		private Boolean? _theme;
+		private Boolean? _wheelArt;
+		private Boolean? _video;
+		private Boolean? _artwork4;
+		private Boolean? _artwork3;
+		private Boolean? _artwork2;
+		private Boolean? _artwork1;
+		private Boolean? _background;
 
 		#endregion PRIVATE PROPERTIES
 
@@ -235,7 +235,7 @@ namespace HyperValidator.Models
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="Game"/> has an artwork 1 file.
 		/// </summary>
-		public Boolean Artwork1
+		public Boolean? Artwork1
 		{
 			get => _artwork1;
 			set
@@ -249,7 +249,7 @@ namespace HyperValidator.Models
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="Game"/> has an artwork 2 file.
 		/// </summary>
-		public Boolean Artwork2
+		public Boolean? Artwork2
 		{
 			get => _artwork2;
 			set
@@ -263,7 +263,7 @@ namespace HyperValidator.Models
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="Game"/> has an artwork 3 file.
 		/// </summary>
-		public Boolean Artwork3
+		public Boolean? Artwork3
 		{
 			get => _artwork3;
 			set
@@ -277,7 +277,7 @@ namespace HyperValidator.Models
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="Game"/> has an artwork 4 file.
 		/// </summary>
-		public Boolean Artwork4
+		public Boolean? Artwork4
 		{
 			get => _artwork4;
 			set
@@ -291,7 +291,7 @@ namespace HyperValidator.Models
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="Game"/> has a video file.
 		/// </summary>
-		public Boolean Video
+		public Boolean? Video
 		{
 			get => _video;
 			set
@@ -305,7 +305,7 @@ namespace HyperValidator.Models
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="Game"/> has a wheel art file.
 		/// </summary>
-		public Boolean WheelArt
+		public Boolean? WheelArt
 		{
 			get => _wheelArt;
 			set
@@ -319,7 +319,7 @@ namespace HyperValidator.Models
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="Game"/> has a theme.
 		/// </summary>
-		public Boolean Theme
+		public Boolean? Theme
 		{
 			get => _theme;
 			set
@@ -333,7 +333,7 @@ namespace HyperValidator.Models
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="Game"/> has a rom.
 		/// </summary>
-		public Boolean Rom
+		public Boolean? Rom
 		{
 			get => _rom;
 			set
@@ -347,7 +347,7 @@ namespace HyperValidator.Models
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="GameStatus"/> is background.
 		/// </summary>
-		public Boolean Background
+		public Boolean? Background
 		{
 			get => _background;
 			set
