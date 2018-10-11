@@ -57,7 +57,6 @@ namespace HyperValidator.Terminal
 
 			menu.Execute();
 			TestConsoleRepository(menu.SelectedItem.Text);
-			Console.ReadLine();
 			goto start;
 		}
 
@@ -69,6 +68,8 @@ namespace HyperValidator.Terminal
 		{
 			try
 			{
+				refresh:
+
 				Console.Clear();
 				new ConsoleBanner(consoleName, "Arial", 8, FontStyle.Bold, 150, 14) {ForeColor = ConsoleColor.Cyan, Pallet = new [] {'#', '%', 'M', 'V', 'l', ',', '.', ' '} }.Execute();
 				Console.WriteLine("Validating Console Data");
@@ -139,6 +140,22 @@ namespace HyperValidator.Terminal
 					Console.ForegroundColor = ConsoleColor.White;
 					Console.WriteLine(game.Name);
 				}
+
+				var menu = new ConsoleMenuList
+				{
+					GridWidth = 2,
+					ItemWidth = 40,
+					BorderStyle = ConsoleBorderStyle.SingleDouble
+				};
+
+				menu.Items.Add(new ConsoleListItem("Refresh", "Refresh"));
+				menu.Items.Add(new ConsoleListItem("Main Menu", "Main Menu"));
+
+				menu.Execute();
+
+				if (menu.SelectedItem.Text == "Refresh")
+					goto refresh;
+
 			}
 			catch (Exception ex)
 			{
