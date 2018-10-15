@@ -207,7 +207,7 @@ namespace HyperValidator.Core.Configuration
 		{
 			get
 			{
-				var value = AppSettingsReader.ReadOptionalStringAppSetting(nameof(RomFileTypes), "smc,zip,7z,gba,nes,gb,a52,iso,bin");
+				var value = AppSettingsReader.ReadOptionalStringAppSetting(nameof(RomFileTypes), "smc,zip,7z,gba,nes,gb,a52,iso,bin,cpr,rom");
 				var list = value.Split(',');
 				return new List<String>(list);
 			}

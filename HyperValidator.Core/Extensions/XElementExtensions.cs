@@ -21,7 +21,7 @@ namespace HyperValidator.Core.Extensions
 			var child = element.Element(XName.Get(name));
 			if (child == null)
 				return false;
-			return (child.Value == "T" || child.Value == "1" || child.Value == "Y" || child.Value.ToLower() == "true");
+			return (child.Value == "T" || child.Value == "1" || child.Value == "Y" || child.Value.ToLower() == "true" || child.Value.ToLower() == "yes");
 		}
 
 		/// <summary>

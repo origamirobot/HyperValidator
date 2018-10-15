@@ -226,6 +226,8 @@ namespace HyperValidator.Models
 		private Boolean? _artwork2;
 		private Boolean? _artwork1;
 		private Boolean? _background;
+		private String _name;
+		private Boolean _enabled;
 
 		#endregion PRIVATE PROPERTIES
 
@@ -354,6 +356,34 @@ namespace HyperValidator.Models
 			{
 				if (value == _background) return;
 				_background = value;
+				OnPropertyChanged();
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="GameStatus"/> is enabled.
+		/// </summary>
+		public Boolean Enabled
+		{
+			get => _enabled;
+			set
+			{
+				if (value == _enabled) return;
+				_enabled = value;
+				OnPropertyChanged();
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the name.
+		/// </summary>
+		public String Name
+		{
+			get => _name;
+			set
+			{
+				if (value == _name) return;
+				_name = value;
 				OnPropertyChanged();
 			}
 		}

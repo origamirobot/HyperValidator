@@ -11,7 +11,9 @@ using HyperValidator.Application.Global.Shell;
 using HyperValidator.Core.Configuration;
 using HyperValidator.Core.IO;
 using HyperValidator.Core.Logging;
+using HyperValidator.Core.Repositories;
 using HyperValidator.Core.Serialization;
+using HyperValidator.Core.Validators;
 using HyperValidator.Models;
 using HyperValidator.Properties;
 using log4net.Repository.Hierarchy;
@@ -63,22 +65,27 @@ namespace HyperValidator
 			Kernel = new StandardKernel();
 			base.Configure();
 
-			Kernel.Bind<IShell>().To<ShellViewModel>();
-			Kernel.Bind<IMainMenu>().To<MainMenuViewModel>();
-			Kernel.Bind<IWindowManager>().To<WindowManager>();
-			Kernel.Bind<IEventAggregator>().To<EventAggregator>();
 			Kernel.Bind<IAppSettingsReader>().To<CoreAppSettingsReader>();
 			Kernel.Bind<IConfigurationManager>().To<ConfigManagerWrapper>();
 			Kernel.Bind<IFileUtility>().To<FileUtility>();
 			Kernel.Bind<IDirectoryUtility>().To<DirectoryUtility>();
 			Kernel.Bind<IPathUtility>().To<PathUtility>();
 			Kernel.Bind<IHyperValidatorSettings>().To<HyperValidatorSettings>();
-
 			var settings = Kernel.Get<IHyperValidatorSettings>();
 			log4net.Config.XmlConfigurator.Configure();
 			var log4NetLogger = log4net.LogManager.GetLogger(settings.LoggerName);
 			Kernel.Bind<ILogger>().ToMethod(x => new Log4NetLogger(log4NetLogger, settings)).InSingletonScope();
+			Kernel.Bind<IConsoleSerializer>().To<ConsoleSerializer>();
 			Kernel.Bind<IDatabaseSerializer>().To<DatabaseSerializer>();
+			Kernel.Bind<IIniSerializer>().To<IniSerializer>();
+			Kernel.Bind<IGameValidator>().To<GameValidator>();
+			Kernel.Bind<IConsoleValidator>().To<ConsoleValidator>();
+			Kernel.Bind<IConsoleRepository>().To<ConsoleRepository>();
+			Kernel.Bind<ISystemRepository>().To<SystemRepository>();
+			Kernel.Bind<IShell>().To<ShellViewModel>();
+			Kernel.Bind<IMainMenu>().To<MainMenuViewModel>();
+			Kernel.Bind<IWindowManager>().To<WindowManager>();
+			Kernel.Bind<IEventAggregator>().To<EventAggregator>();
 		}
 
 

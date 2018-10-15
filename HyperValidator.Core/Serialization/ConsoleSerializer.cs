@@ -145,12 +145,17 @@ namespace HyperValidator.Core.Serialization
 					WindowState = ini["exe info"]["winstate"].ToEnum<WindowState>()
 				};
 
-				settings.Filters = new Filters()
-				{
-					ParentsOnly = ini["filters"]["parents_only"].ToBoolean(),
-					ThemesOnly = ini["filters"]["themes_only"].ToBoolean(),
-					WheelsOnly = ini["filters"]["wheels_only"].ToBoolean()
-				};
+				settings.Filters = new Filters();
+
+				if (ini["filters"]?["parents_only"] != null)
+					settings.Filters.ParentsOnly = ini["filters"]["parents_only"].ToBoolean();
+				
+				if (ini["filters"]?["themes_only"] != null)
+					settings.Filters.ThemesOnly = ini["filters"]["themes_only"].ToBoolean();
+
+				if (ini["filters"]?["wheels_only"] != null)
+					settings.Filters.WheelsOnly = ini["filters"]["wheels_only"].ToBoolean();
+
 
 				settings.GameText = new GameText()
 				{

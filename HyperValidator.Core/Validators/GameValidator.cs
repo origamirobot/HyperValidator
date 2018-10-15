@@ -291,8 +291,6 @@ namespace HyperValidator.Core.Validators
 			return false;
 		}
 
-
-
 		#endregion PROTECTED METHODS
 
 		#region PUBLIC METHODS
@@ -308,6 +306,7 @@ namespace HyperValidator.Core.Validators
 		{
 			var status = new GameStatus()
 			{
+				Name = game.Name,
 				Artwork1 = ValidateArtwork1(console, game),
 				Artwork2 = ValidateArtwork2(console, game),
 				Artwork3 = ValidateArtwork3(console, game),
@@ -316,14 +315,14 @@ namespace HyperValidator.Core.Validators
 				Theme = ValidateTheme(console, game),
 				Video = ValidateVideo(console, game),
 				WheelArt = ValidateWheelArt(console, game),
-				Background = ValidateBackground(console, game)
+				Background = ValidateBackground(console, game),
+				Enabled = game.Enabled
 			};
 			return status;
 		}
 
 
 		#endregion PUBLIC METHODS
-
 	}
 
 }

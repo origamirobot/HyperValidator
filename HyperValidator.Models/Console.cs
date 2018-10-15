@@ -17,7 +17,7 @@ namespace HyperValidator.Models
 		private Database _database;
 		private Int32 _index;
 		private String _name;
-
+		private Boolean _loaded;
 
 		#endregion PROTECTED PROPERTIES
 
@@ -89,6 +89,20 @@ namespace HyperValidator.Models
 		/// Gets or sets the status.
 		/// </summary>
 		public ConsoleStatus Status { get; set; }
+
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="Console"/> is loaded.
+		/// </summary>
+		public Boolean Loaded
+		{
+			get => _loaded;
+			set
+			{
+				if (value == _loaded) return;
+				_loaded = value;
+				OnPropertyChanged();
+			}
+		}
 
 
 		#endregion PUBLIC ACCESSORS

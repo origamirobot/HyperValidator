@@ -33,6 +33,7 @@ namespace HyperValidator.Models.Settings
 
 		#region PUBLIC ACCESSORS
 
+
 		/// <summary>
 		/// Gets or sets the path.
 		/// </summary>

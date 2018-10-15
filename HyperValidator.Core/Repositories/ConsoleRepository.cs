@@ -4,6 +4,7 @@ using HyperValidator.Core.Logging;
 using HyperValidator.Core.Serialization;
 using HyperValidator.Core.Validators;
 using System;
+using HyperValidator.Models;
 
 namespace HyperValidator.Core.Repositories
 {
@@ -19,8 +20,19 @@ namespace HyperValidator.Core.Repositories
 		/// Gets the specified console using it's name as an identifier.
 		/// </summary>
 		/// <param name="name">The name of the console to get.</param>
+		/// <param name="validate">if set to <c>true</c> [validate].</param>
 		/// <returns></returns>
-		HyperValidator.Models.Console Get(String name);
+		HyperValidator.Models.Console Get(String name, Boolean validate = false);
+
+		/// <summary>
+		/// Occurs when a game is validated.
+		/// </summary>
+		event EventHandler<GameStatus> GameValidated;
+
+		/// <summary>
+		/// Occurs when [validation complete].
+		/// </summary>
+		event EventHandler ValidationComplete;
 
 	}
 
@@ -123,6 +135,30 @@ namespace HyperValidator.Core.Repositories
 
 		#endregion CONSTRUCTORS
 
+		#region PROTECTED METHODS
+
+
+		/// <summary>
+		/// Called when [game validated].
+		/// </summary>
+		/// <param name="status">The status.</param>
+		protected virtual void OnGameValidated(GameStatus status)
+		{
+			this.GameValidated?.Invoke(this, status);
+		}
+
+		/// <summary>
+		/// Called when [validation complete].
+		/// </summary>
+		protected virtual void OnValidationComplete()
+		{
+			this.ValidationComplete?.Invoke(this, EventArgs.Empty);
+		}
+
+
+
+		#endregion PROTECTED METHODS
+
 		#region PUBLIC METHODS
 
 
@@ -130,8 +166,10 @@ namespace HyperValidator.Core.Repositories
 		/// Gets the specified console using it's name as an identifier.
 		/// </summary>
 		/// <param name="name">The name of the console to get.</param>
+		/// <param name="validate">if set to <c>true</c> [validate].</param>
 		/// <returns></returns>
-		public HyperValidator.Models.Console Get(String name)
+		/// <exception cref="Exception"></exception>
+		public HyperValidator.Models.Console Get(String name, Boolean validate = false)
 		{
 			var console = new HyperValidator.Models.Console() { Name = name };
 
@@ -140,19 +178,48 @@ namespace HyperValidator.Core.Repositories
 			console.Database = database;
 
 			var settingsPath = PathUtility.Combine(Settings.HyperSpinRootLocation, "settings", $"{console.Name}.ini");
+			if (!FileUtility.Exists(settingsPath))
+				throw new Exception($"Failed to find settings file for {name}");
+
 			var settings = ConsoleSerializer.DeserializeFromFile(settingsPath);
 			console.Settings = settings;
 
 			console.Status = ConsoleValidator.Validate(console);
 
-			foreach (var game in console.Database.Games)
-				game.Status = GameValidator.Validate(console, game);
+			if (validate)
+			{
+				foreach (var game in console.Database.Games)
+				{
+					var status = GameValidator.Validate(console, game);
+					OnGameValidated(status);
+					game.Status = status;
+				}
+				OnValidationComplete();
+			}
 
 			return console;
 		}
 
 
 		#endregion PUBLIC METHODS
+
+
+		#region PUBLIC EVENTS
+
+
+		/// <summary>
+		/// Occurs when a game is validated.
+		/// </summary>
+		public event EventHandler<GameStatus> GameValidated;
+
+		/// <summary>
+		/// Occurs when [validation complete].
+		/// </summary>
+		public event EventHandler ValidationComplete;
+
+
+		#endregion PUBLIC EVENTS
+
 
 	}
 

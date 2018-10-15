@@ -67,7 +67,7 @@ namespace HyperValidator.Application.Global.Shell
 		protected override void OnViewReady(object view)
 		{
 			base.OnViewReady(view);
-			ActivateItem(new HomeViewModel());
+			ActivateItem(IoC.Get<SettingsViewModel>());
 		}
 
 

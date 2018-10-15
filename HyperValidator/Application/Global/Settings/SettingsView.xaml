@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="HyperValidator.Application.Global.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+	<UserControl.Resources>
+		<ResourceDictionary Source="SettingsStyles.xaml"/>
+	</UserControl.Resources>
+	<Grid Style="{DynamicResource Settings_View}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="300"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid Grid.Column="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="40"/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Style="{DynamicResource Settings_SystemListText}"/>
+			<ListBox Style="{DynamicResource Settings_SystemList}"/>
+		</Grid>
+		<TabControl Style="{DynamicResource Settings_TabControl}">
+			<TabItem Header="Launcher">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="150"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+
+					<Label Style="{DynamicResource Settings_Label}" Content="Path" Grid.Row="0"/>
+					<Label Style="{DynamicResource Settings_Label}" Content="Rom Path" Grid.Row="1"/>
+					<Label Style="{DynamicResource Settings_Label}" Content="Use Rom Path" Grid.Row="2"/>
+					<Label Style="{DynamicResource Settings_Label}" Content="Executable" Grid.Row="3"/>
+					<Label Style="{DynamicResource Settings_Label}" Content="Rom Extension" Grid.Row="4"/>
+					<Label Style="{DynamicResource Settings_Label}" Content="Parameters" Grid.Row="5"/>
+					<Label Style="{DynamicResource Settings_Label}" Content="Search Sub Folders" Grid.Row="6"/>
+					<Label Style="{DynamicResource Settings_Label}" Content="PC Game" Grid.Row="7"/>
+					<Label Style="{DynamicResource Settings_Label}" Content="Window State" Grid.Row="8"/>
+					<Label Style="{DynamicResource Settings_Label}" Content="Hyper Launch" Grid.Row="9"/>
+
+
+					<TextBox Style="{DynamicResource Settings_PathTextBox}"/>
+					<TextBox Style="{DynamicResource Settings_RomPathTextBox}"/>
+					<TextBox Style="{DynamicResource Settings_ExecutableTextBox}"/>
+					<TextBox Style="{DynamicResource Settings_RomExtensionTextBox}"/>
+					<TextBox Style="{DynamicResource Settings_ParametersTextBox}"/>
+					<TextBox Style="{DynamicResource Settings_TextBox}"/>
+					<TextBox Style="{DynamicResource Settings_TextBox}"/>
+					<TextBox Style="{DynamicResource Settings_TextBox}"/>
+
+				</Grid>
+
+			</TabItem>
+			<TabItem Header="Wheel"></TabItem>
+			<TabItem Header="Artwork"></TabItem>
+		</TabControl>
+	</Grid>
+</UserControl>

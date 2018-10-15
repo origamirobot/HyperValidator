@@ -78,6 +78,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Application\Global\Settings\SettingsStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Application\Global\Settings\SettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Application\Global\Selector\SelectorStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,6 +122,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Application\Global\Settings\SettingsViewModel.cs" />
     <Compile Include="Application\Global\Selector\SelectorViewModel.cs" />
     <Compile Include="Application\Global\Home\HomeViewModel.cs" />
     <Compile Include="Application\Global\MainMenu\IShell.cs" />
@@ -157,6 +166,10 @@
     <ProjectReference Include="..\HyperValidator.Core\HyperValidator.Core.csproj">
       <Project>{C080FBE5-C707-4171-847B-760BC005DE1E}</Project>
       <Name>HyperValidator.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HyperValidator.Models\HyperValidator.Models.csproj">
+      <Project>{A441C772-FE22-4C59-B673-1BC25AF2A8DB}</Project>
+      <Name>HyperValidator.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

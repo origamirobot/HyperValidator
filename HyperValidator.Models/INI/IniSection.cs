@@ -50,6 +50,17 @@ namespace HyperValidator.Models.INI
 			Properties = new List<IniValue>();
 		}
 
+		/// <summary>
+		/// Returns a <see cref="System.String" /> that represents this instance.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="System.String" /> that represents this instance.
+		/// </returns>
+		public override String ToString()
+		{
+			return Name;
+		}
+
 	}
 
 }
